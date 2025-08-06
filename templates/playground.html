@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Playground - {{ agent['name'] }}</h2>
+<div>
+    {% for chat in chats %}
+        <p><strong>{{ chat['role'] }}:</strong> {{ chat['content'] }}</p>
+    {% endfor %}
+</div>
+<form method="post">
+    <p><textarea name="message" rows="3" cols="60"></textarea></p>
+    <p><button type="submit">Send</button></p>
+</form>
+{% endblock %}

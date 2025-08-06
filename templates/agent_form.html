@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<form method="post">
+    <p>Name: <input type="text" name="name" value="{{ agent['name'] if agent else '' }}" required></p>
+    <p>Model: <input type="text" name="model" value="{{ agent['model'] if agent else default_model }}" required></p>
+    <p>Prompt/Instructions:<br><textarea name="instructions" rows="4" cols="60">{{ agent['instructions'] if agent else '' }}</textarea></p>
+    <p>Tools (JSON):<br><textarea name="tools" rows="4" cols="60">{{ agent['tools'] if agent else '' }}</textarea></p>
+    <p>Guardrails (JSON):<br><textarea name="guardrails" rows="4" cols="60">{{ agent['guardrails'] if agent else '' }}</textarea></p>
+    <p><button type="submit">Save</button></p>
+</form>
+{% endblock %}
